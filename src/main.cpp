@@ -1,6 +1,6 @@
 #include "die.h"
 #include "roll.h"
-
+#include "shooter.h"
 
 #include <iostream>
 #include <time.h>
@@ -9,16 +9,24 @@ using std::cout;
 int main() 
 {
 	srand(time(NULL));
-	Die dice1;
-	Die dice2;
-	Roll test(dice1,dice2);
+	Die dado1;
+	Die dado2;
+
+	Die dado3;
+	Die dado4;
+
+	Shooter shoot;
+
+	for (int u = 0; u < 10; u++)
+	{
+		Roll* just = shoot.throw_die(dado1,dado2);
+	}
+	
+	cout << shoot;
+	
 
 	
-	for (int k = 0; k < 10; k++)
-	{
-		test.roll_die();
-		cout << "the sum of 2 dice was" << test.roll_value() << "\n";
-	}
+
 
 	return 0;
 }

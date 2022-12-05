@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "die.h"
 #include "roll.h"
-
+#include "shooter.h"
 
 #include <time.h>
 
@@ -40,5 +40,20 @@ TEST_CASE("Verify Question 2 by rolling 10 times and asserting each roll 2-12")
 	{
 		dados.roll_die();
 		REQUIRE(((dados.roll_value() >= 2) && (dados.roll_value() <= 12)) == true);
+	}
+}
+
+TEST_CASE("Verify Question 3 by rolling 10 times and has values 2-12")
+{
+	srand(time(NULL));
+	Die dice1;
+	Die dice2;
+
+	Shooter shoot;
+
+	for (int k = 0; k < 10; k++)
+	{
+		Roll* roll_ptr = shoot.throw_die(dice1, dice2);
+		REQUIRE(((roll_ptr->roll_value() >= 2) && (roll_ptr->roll_value() <= 12)) == true);
 	}
 }
